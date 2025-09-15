@@ -1,5 +1,8 @@
 package com.github.cleytonorocha.vue_dashboard_back.service;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -7,8 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.github.cleytonorocha.vue_dashboard_back.exception.ItemNotFoundException;
+import com.github.cleytonorocha.vue_dashboard_back.helper.EnumDTO;
 import com.github.cleytonorocha.vue_dashboard_back.helper.ListData;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
+import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory;
 import com.github.cleytonorocha.vue_dashboard_back.model.repository.ProductRepository;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.ProductDTO;
 
@@ -40,8 +45,7 @@ public class ProductService {
                         .map(ProductDTO::toDTO)
                         .toList(),
                 products.getPageable(),
-                products.getTotalElements()
-        );
+                products.getTotalElements());
 
         log.info("Returning {} products", productDTOs.getTotalElements());
 
@@ -86,4 +90,11 @@ public class ProductService {
             throw new ItemNotFoundException();
         }
     }
+
+    public List<EnumDTO> comboCategory() {
+        return Arrays.stream(ProductCategory.values())
+                .map(category -> new EnumDTO(category.getCod(), category.getDescription()))
+                .toList();
+    }
+
 }

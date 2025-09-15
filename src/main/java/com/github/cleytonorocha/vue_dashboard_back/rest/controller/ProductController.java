@@ -1,5 +1,7 @@
 package com.github.cleytonorocha.vue_dashboard_back.rest.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.cleytonorocha.vue_dashboard_back.helper.EnumDTO;
 import com.github.cleytonorocha.vue_dashboard_back.helper.ListData;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.ProductDTO;
 import com.github.cleytonorocha.vue_dashboard_back.service.ProductService;
@@ -21,6 +24,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
 
 @Log4j2
 @RestController
@@ -77,4 +81,12 @@ public class ProductController {
         log.info("Product deleted with id: {}", id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/combo/category")
+    @Operation(summary = "List catories")
+    public List<EnumDTO> getMethodName() {
+        log.info("Searching category list");
+        return productService.comboCategory();
+    }
+    
 }
