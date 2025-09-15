@@ -14,6 +14,7 @@ import com.github.cleytonorocha.vue_dashboard_back.helper.EnumDTO;
 import com.github.cleytonorocha.vue_dashboard_back.helper.ListData;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory;
+import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductStatus;
 import com.github.cleytonorocha.vue_dashboard_back.model.repository.ProductRepository;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.ProductDTO;
 
@@ -91,10 +92,20 @@ public class ProductService {
         }
     }
 
-    public List<EnumDTO> comboCategory() {
-        return Arrays.stream(ProductCategory.values())
-                .map(category -> new EnumDTO(category.getCod(), category.getDescription()))
-                .toList();
+    public List<EnumDTO> combo(Class<? extends Enum<?>> enumClass) {
+        if (enumClass == null) {
+            throw new IllegalArgumentException("Enum class cannot be null");
+        }
+
+        return switch (enumClass.getSimpleName()) {
+            case "ProductCategory" -> Arrays.stream(ProductCategory.values())
+                    .map(e -> new EnumDTO(e.getCod(), e.getDescription()))
+                    .toList();
+            case "ProductStatus" -> Arrays.stream(ProductStatus.values())
+                    .map(e -> new EnumDTO(e.getCod(), e.getDescription()))
+                    .toList();
+            default -> throw new IllegalArgumentException("Unsupported enum type: " + enumClass.getSimpleName());
+        };
     }
 
 }

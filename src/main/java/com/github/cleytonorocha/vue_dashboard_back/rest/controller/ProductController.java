@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.cleytonorocha.vue_dashboard_back.helper.EnumDTO;
 import com.github.cleytonorocha.vue_dashboard_back.helper.ListData;
+import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory;
+import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductStatus;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.ProductDTO;
 import com.github.cleytonorocha.vue_dashboard_back.service.ProductService;
 
@@ -24,7 +26,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-
 
 @Log4j2
 @RestController
@@ -84,9 +85,16 @@ public class ProductController {
 
     @GetMapping("/combo/category")
     @Operation(summary = "List catories")
-    public List<EnumDTO> getMethodName() {
+    public List<EnumDTO> getAllCategory() {
         log.info("Searching category list");
-        return productService.comboCategory();
+        return productService.combo(ProductCategory.class);
     }
-    
+
+    @GetMapping("/combo/status")
+    @Operation(summary = "List catories")
+    public List<EnumDTO> getAllStatus() {
+        log.info("Searching status list");
+        return productService.combo(ProductStatus.class);
+    }
+
 }
