@@ -2,6 +2,8 @@ package com.github.cleytonorocha.vue_dashboard_back.model.enums;
 
 import java.util.Arrays;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.github.cleytonorocha.vue_dashboard_back.exception.EnumIdException;
 
 import lombok.AllArgsConstructor;
@@ -36,5 +38,23 @@ public enum ProductCategory {
                 .filter(f -> f.getCod().equals(cod))
                 .findFirst()
                 .orElseThrow(() -> new EnumIdException());
+    }
+
+    @JsonValue
+    public String toDescription() {
+        return description;
+    }
+
+    @JsonCreator
+    public static ProductCategory from(Object value) {
+        if (value == null) {
+            throw new IllegalArgumentException("ProductCategory cannot be null");
+        }
+
+        return Arrays.stream(ProductCategory.values())
+                .filter(cartegory -> (value instanceof Integer && cartegory.getCod().equals(value))
+                        || (value instanceof String && cartegory.getDescription().equalsIgnoreCase(value.toString())))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid ProductCategory: " + value));
     }
 }
