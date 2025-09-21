@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.cleytonorocha.vue_dashboard_back.exception.ItemNotFoundException;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Local;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.LocalRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.LocalRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

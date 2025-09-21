@@ -16,11 +16,11 @@ import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Sale;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductStatus;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.CustomerRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.EmployeeRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.LocalRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.ProductRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.SaleRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.CustomerRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.EmployeeRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.LocalRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.ProductRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.SaleRepository;
 import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
