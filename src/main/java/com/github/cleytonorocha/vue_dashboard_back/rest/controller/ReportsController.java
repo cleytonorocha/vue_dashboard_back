@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.cleytonorocha.vue_dashboard_back.helper.MediaTypes;
 import com.github.cleytonorocha.vue_dashboard_back.helper.ReportHelper;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
+import com.github.cleytonorocha.vue_dashboard_back.repository.ProductRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.specification.ProductSpecification;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.MediaTypeDTO;
-import com.github.cleytonorocha.vue_dashboard_back.service.ProductService;
+import com.github.cleytonorocha.vue_dashboard_back.rest.request.ProductRequest;
 
 import lombok.AllArgsConstructor;
-
-import org.springframework.http.MediaType;
 
 @RestController
 @AllArgsConstructor
@@ -28,24 +29,34 @@ import org.springframework.http.MediaType;
         MediaTypes.APPLICATION_XLSX_VALUE })
 public class ReportsController extends ReportHelper {
 
-    private final ProductService productService;
+    private final ProductRepository productRepository;
 
     @GetMapping("/listProductReport")
-    public ResponseEntity<byte[]> getListProductReport(@RequestParam MediaTypeDTO mediaTypeDTO) throws Exception {
+    public ResponseEntity<byte[]> getListProductReport(@RequestParam MediaTypeDTO mediaTypeDTO, ProductRequest filter)
+            throws Exception {
         Map<String, Object> parameters = Map.of("titulo", "Relatório de Produtos");
 
-        List<Product> data = null;
+        List<Product> data = productRepository.findAll(ProductSpecification.filterBy(filter));
 
-        // Generate report
         byte[] file;
-        String filename = "report." + mediaTypeDTO.getExtension();
+        String filename;
+        String contentType;
 
         switch (mediaTypeDTO) {
             case PDF:
                 file = exportPdf("products.jasper", parameters, data);
+                filename = "report.pdf";
+                contentType = MediaTypes.APPLICATION_PDF_VALUE;
                 break;
             case XLSX:
                 file = exportExcel("products.jasper", parameters, data);
+                filename = "report.xlsx";
+                contentType = MediaTypes.APPLICATION_XLSX_VALUE;
+                break;
+            case CSV:
+                file = exportCsv("products.jasper", parameters, data);
+                filename = "report.csv";
+                contentType = MediaTypes.APPLICATION_CSV_VALUE;
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported media type: " + mediaTypeDTO);
@@ -53,8 +64,7 @@ public class ReportsController extends ReportHelper {
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
-                .contentType(MediaType.parseMediaType(MediaTypes.APPLICATION_XLSX_VALUE))
+                .contentType(MediaType.parseMediaType(contentType))
                 .body(file);
     }
-
 }
