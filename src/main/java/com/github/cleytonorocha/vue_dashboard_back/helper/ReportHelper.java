@@ -25,7 +25,7 @@ public abstract class ReportHelper {
     private static final String BASE_PATH = "/report/";
 
     public static JasperPrint fillReport(String reportName,
-            Map<String, Object> parametros,
+            Map<String, Object> parameters,
             Collection<?> data) throws JRException {
 
         String reportPath = BASE_PATH + reportName;
@@ -35,28 +35,26 @@ public abstract class ReportHelper {
             throw new IllegalArgumentException("File not found in classpath at: " + reportPath);
         }
 
-        JasperReport jasperReport;
-
-        jasperReport = JasperCompileManager.compileReport(jaspInputStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(jaspInputStream);
 
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(data);
 
-        return JasperFillManager.fillReport(jasperReport, parametros, dataSource);
+        return JasperFillManager.fillReport(jasperReport, parameters, dataSource);
     }
 
     public static byte[] exportPdf(String reportName,
-            Map<String, Object> parametros,
+            Map<String, Object> parameters,
             Collection<?> data) throws JRException {
 
-        JasperPrint print = fillReport(reportName, parametros, data);
+        JasperPrint print = fillReport(reportName, parameters, data);
         return JasperExportManager.exportReportToPdf(print);
     }
 
     public static byte[] exportExcel(String reportName,
-            Map<String, Object> parametros,
+            Map<String, Object> parameters,
             Collection<?> data) throws JRException {
 
-        JasperPrint print = fillReport(reportName, parametros, data);
+        JasperPrint print = fillReport(reportName, parameters, data);
 
         JRXlsxExporter exporter = new JRXlsxExporter();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -76,10 +74,10 @@ public abstract class ReportHelper {
     }
 
     public static byte[] exportCsv(String reportName,
-                                   Map<String, Object> parametros,
+                                   Map<String, Object> parameters,
                                    Collection<?> data) throws JRException {
     
-        JasperPrint print = fillReport(reportName, parametros, data);
+        JasperPrint print = fillReport(reportName, parameters, data);
     
         JRCsvExporter exporter = new JRCsvExporter();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

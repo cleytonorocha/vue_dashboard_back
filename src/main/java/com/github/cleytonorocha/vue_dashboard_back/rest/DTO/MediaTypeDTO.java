@@ -2,6 +2,8 @@ package com.github.cleytonorocha.vue_dashboard_back.rest.DTO;
 
 import java.util.Arrays;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 /**
  * Enum for report media types with code
  */
@@ -46,9 +48,10 @@ public enum MediaTypeDTO {
     /**
      * Converts a code to enum
      */
+    @JsonCreator
     public static MediaTypeDTO fromCode(Integer code) {
         return Arrays.stream(MediaTypeDTO.values())
-                .filter(m -> m.extension.equals(code))
+                .filter(m -> m.code.equals(code))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Invalid media type code: " + code));
     }

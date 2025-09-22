@@ -43,6 +43,6 @@ public enum ProductStatus {
                 .filter(status -> (value instanceof Integer && status.getCod().equals(value))
                         || (value instanceof String && status.getDescription().equalsIgnoreCase(value.toString())))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid ProductCategory: " + value));
+                .orElse(null);
     }
 }
