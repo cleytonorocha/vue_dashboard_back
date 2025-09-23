@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.Map;
 
+import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -74,27 +75,27 @@ public abstract class ReportHelper {
     }
 
     public static byte[] exportCsv(String reportName,
-                                   Map<String, Object> parameters,
-                                   Collection<?> data) throws JRException {
-    
+            Map<String, Object> parameters,
+            Collection<?> data) throws JRException {
+
         JasperPrint print = fillReport(reportName, parameters, data);
-    
+
         JRCsvExporter exporter = new JRCsvExporter();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    
+
         // Configura entrada e saída
         exporter.setExporterInput(new SimpleExporterInput(print));
         exporter.setExporterOutput(new SimpleWriterExporterOutput(baos));
-    
+
         // Configurações CSV (opcional)
         SimpleCsvExporterConfiguration config = new SimpleCsvExporterConfiguration();
         config.setFieldDelimiter(";"); // delimitador de campos
         config.setRecordDelimiter("\n"); // delimitador de linhas
         exporter.setConfiguration(config);
-    
+
         // Executa exportação
         exporter.exportReport();
-    
+
         return baos.toByteArray();
     }
 }

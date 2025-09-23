@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.attribute.standard.Media;
-
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,6 @@ import com.github.cleytonorocha.vue_dashboard_back.helper.MediaTypes;
 import com.github.cleytonorocha.vue_dashboard_back.helper.ReportHelper;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
 import com.github.cleytonorocha.vue_dashboard_back.repository.ProductRepository;
-import com.github.cleytonorocha.vue_dashboard_back.repository.specification.ProductSpecification;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.MediaTypeDTO;
 import com.github.cleytonorocha.vue_dashboard_back.rest.request.ProductRequest;
 
@@ -38,12 +36,16 @@ public class ReportsController extends ReportHelper {
     private final ProductRepository productRepository;
 
     @PostMapping("/listProductReport/{type}")
-    public ResponseEntity<byte[]> generateProductsReport(@PathVariable(value = "type") Integer type, @RequestBody ProductRequest filter)
-            throws Exception {
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("titulo", "Relatório de Produtos");
+    public ResponseEntity<byte[]> generateProductsReport(
+            @PathVariable("type") Integer type,
+            @RequestBody ProductRequest filter) throws Exception {
 
-        List<Product> data = productRepository.findAll(ProductSpecification.filterBy(filter));
+        Map<String, Object> parameters = new HashMap<>();
+        ClassPathResource imgFile = new ClassPathResource("static/images/logo.png");
+
+        parameters.put("logo", imgFile.getInputStream());
+
+        List<Product> data = productRepository.findAll();
 
         byte[] file;
         String filename;
@@ -55,17 +57,17 @@ public class ReportsController extends ReportHelper {
             case PDF:
                 file = exportPdf("products.jrxml", parameters, data);
                 filename = "report.pdf";
-                contentType = MediaType.APPLICATION_PDF_VALUE;
+                contentType = MediaType.parseMediaType(MediaTypes.APPLICATION_PDF_VALUE).toString();
                 break;
             case XLSX:
                 file = exportExcel("products.jrxml", parameters, data);
                 filename = "report.xlsx";
-                contentType = MediaType.parseMediaType(MediaTypes.APPLICATION_XLSX_VALUE).getType();
+                contentType = MediaType.parseMediaType(MediaTypes.APPLICATION_XLSX_VALUE).toString();
                 break;
             case CSV:
                 file = exportCsv("products.jrxml", parameters, data);
                 filename = "report.csv";
-                contentType = MediaType.parseMediaType(MediaTypes.APPLICATION_CSV_VALUE).getType();
+                contentType = MediaType.parseMediaType(MediaTypes.APPLICATION_CSV_VALUE).toString();
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported media type: " + mediaTypeDTO);
