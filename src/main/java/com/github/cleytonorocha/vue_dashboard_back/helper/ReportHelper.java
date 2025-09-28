@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;

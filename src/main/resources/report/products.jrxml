@@ -3,7 +3,7 @@
 	<parameter name="logo" class="java.io.InputStream"/>
 	<query language="sql"><![CDATA[]]></query>
 	<field name="id" class="java.lang.Long"/>
-	<field name="imageUrl" class="java.lang.String"/>
+	<field name="imageUrl" class="java.awt.image.BufferedImage"/>
 	<field name="name" class="java.lang.String"/>
 	<field name="category" class="com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory"/>
 	<field name="stock" class="java.lang.Integer"/>
@@ -135,7 +135,7 @@
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="3445750b-8c67-4c84-811a-ef5fa3129b6f" x="440" y="0" width="115" height="30" fontSize="7.0" textAdjust="StretchHeight" vTextAlign="Middle">
+			<element kind="textField" uuid="3445750b-8c67-4c84-811a-ef5fa3129b6f" x="440" y="0" width="115" height="30" markup="styled" fontSize="7.0" textAdjust="ScaleFont" vTextAlign="Middle">
 				<expression><![CDATA[$F{description}]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
@@ -148,9 +148,7 @@
 				</box>
 			</element>
 			<element kind="image" uuid="e6dd7395-add1-4ee4-bbd9-6673428019b3" x="0" y="0" width="71" height="30" hImageAlign="Center" vImageAlign="Middle">
-				<expression><![CDATA[$F{imageUrl} == null || $F{imageUrl}.isEmpty() 
-    ? null 
-    : javax.imageio.ImageIO.read(new java.net.URL($F{imageUrl}))
+				<expression><![CDATA[$F{imageUrl}
 ]]></expression>
 				<box padding="1">
 					<pen lineWidth="0.25"/>
