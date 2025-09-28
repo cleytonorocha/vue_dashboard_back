@@ -1,4 +1,4 @@
-package com.github.cleytonorocha.vue_dashboard_back.model.repository;
+package com.github.cleytonorocha.vue_dashboard_back.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,0 +1,181 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="products" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e07fcff-bf9a-4ff8-8d6e-ad30380f8869">
+	<parameter name="logo" class="java.io.InputStream"/>
+	<query language="sql"><![CDATA[]]></query>
+	<field name="id" class="java.lang.Long"/>
+	<field name="imageUrl" class="java.awt.image.BufferedImage"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="category" class="com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory"/>
+	<field name="stock" class="java.lang.Integer"/>
+	<field name="status" class="com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductStatus"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="price" class="java.math.BigDecimal"/>
+	<background splitType="Stretch"/>
+	<title height="67" splitType="Stretch">
+		<element kind="staticText" uuid="ca18c7af-dc95-451b-b683-f2172c74d291" x="71" y="6" width="170" height="41" fontName="SansSerif" fontSize="26.0" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[PRODUCTS]]></text>
+			<box leftPadding="4"/>
+		</element>
+		<element kind="image" uuid="5bc13403-a820-4b01-9569-26b35bd3c740" x="15" y="8" width="50" height="50">
+			<expression><![CDATA[$P{logo}]]></expression>
+		</element>
+	</title>
+	<columnHeader height="21" splitType="Stretch">
+		<element kind="staticText" uuid="5a9a2890-afc7-47b5-8564-1cbe6e842b2e" mode="Opaque" x="0" y="0" width="71" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Image]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="8d3626fd-96b6-4981-bd54-1362d7deedee" mode="Opaque" x="71" y="0" width="49" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Code]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="6c559cfc-7e88-4c3c-a091-56a7cf83697d" mode="Opaque" x="120" y="0" width="100" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="e9fc85a0-59b6-48f0-9600-0e4f632ae80c" mode="Opaque" x="376" y="0" width="64" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Category]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="1b618720-27b2-4eb0-8265-12c76cd32003" mode="Opaque" x="282" y="0" width="50" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Status]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="636382e2-7e6c-4786-8c01-9d87b25cdf4f" mode="Opaque" x="440" y="0" width="115" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Description]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b3db6758-f09c-4278-aee9-a55791a96cc0" mode="Opaque" x="332" y="0" width="44" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Stock]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="e33c4a6c-e550-4358-80cc-db78398955df" mode="Opaque" x="220" y="0" width="62" height="21" forecolor="#FFFFFF" backcolor="#264653" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Price]]></text>
+			<box padding="1">
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.5"/>
+				<leftPen lineWidth="0.5"/>
+				<bottomPen lineWidth="0.5"/>
+				<rightPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<property name="com.jaspersoft.studio.layout"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="a51b2c48-5e5d-477f-8e28-79252164a465" x="71" y="0" width="49" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{id}]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="06c37f15-2aa4-4830-9053-ae3cd07c8aeb" x="120" y="0" width="100" height="30" fontSize="7.0" textAdjust="StretchHeight" vTextAlign="Middle">
+				<expression><![CDATA[$F{name}]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="0629d04a-0f32-4e42-81fb-e0fb76456bae" x="376" y="0" width="64" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{category}.toDescription()]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="773d7773-da9a-430a-a093-a0d5008d27e8" x="332" y="0" width="44" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{stock}]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="65bc8217-b652-4274-a26e-6f78cdd115d4" x="282" y="0" width="50" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{status}.toDescription()]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="3445750b-8c67-4c84-811a-ef5fa3129b6f" x="440" y="0" width="115" height="30" markup="styled" fontSize="7.0" textAdjust="ScaleFont" vTextAlign="Middle">
+				<expression><![CDATA[$F{description}]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="d8a4e4eb-bbd1-4695-a92b-ca51e8cbadf2" x="220" y="0" width="62" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[java.text.NumberFormat.getCurrencyInstance(new java.util.Locale("pt", "BR")).format($F{price})]]></expression>
+				<box padding="2">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="image" uuid="e6dd7395-add1-4ee4-bbd9-6673428019b3" x="0" y="0" width="71" height="30" hImageAlign="Center" vImageAlign="Middle">
+				<expression><![CDATA[$F{imageUrl}
+]]></expression>
+				<box padding="1">
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+		</band>
+	</detail>
+	<columnFooter height="50">
+		<element kind="frame" uuid="ac66bfae-35ca-4160-b80c-821e0bfcf2d7" x="162" y="32" width="230" height="12">
+			<element kind="line" uuid="eb69c603-ebd9-47e4-b524-7aa0ae248702" x="0" y="0" width="230" height="1">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="staticText" uuid="08114092-99ef-421a-819b-528b3ce55f54" x="75" y="1" width="81" height="11" fontSize="7.0" hTextAlign="Center">
+				<text><![CDATA[Authorized Signature]]></text>
+			</element>
+		</element>
+	</columnFooter>
+	<pageFooter height="16" splitType="Stretch">
+		<element kind="textField" uuid="c4f3c586-3d93-40a4-8150-4b85d871184d" x="399" y="5" width="100" height="10" fontSize="7.0" hTextAlign="Right">
+			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="881851ed-c3e3-47b0-81b5-6a866e1a1416" x="499" y="5" width="45" height="10" fontSize="7.0" evaluationTime="Report" hTextAlign="Left">
+			<expression><![CDATA[" of " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="3097d18c-4be6-4afc-9e94-29fecdff60a6" x="10" y="5" width="101" height="11" fontSize="7.0" pattern="MMMMM dd, yyyy">
+			<expression><![CDATA["Date: "+new java.util.Date()]]></expression>
+		</element>
+	</pageFooter>
+</jasperReport>

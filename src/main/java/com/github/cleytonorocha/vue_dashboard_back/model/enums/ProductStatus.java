@@ -12,11 +12,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ProductStatus {
-    AVAILABLE(1, "AVAILABLE"),
-    OUT_OF_STOCK(2, "OUT OF STOCK"),
-    DISCONTINUED(3, "DISCONTINUED"),
-    PENDING(4, "PENDING"),
-    RESERVED(5, "RESERVED");
+    AVAILABLE(1, "Available"),
+    OUT_OF_STOCK(2, "Out of Stock"),
+    DISCONTINUED(3, "Discontinued"),
+    PENDING(4, "Pending"),
+    RESERVED(5, "Reserved");
 
     private final Integer cod;
     private final String description;
@@ -43,6 +43,6 @@ public enum ProductStatus {
                 .filter(status -> (value instanceof Integer && status.getCod().equals(value))
                         || (value instanceof String && status.getDescription().equalsIgnoreCase(value.toString())))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid ProductCategory: " + value));
+                .orElse(null);
     }
 }

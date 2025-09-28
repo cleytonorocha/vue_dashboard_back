@@ -47,14 +47,10 @@ public enum ProductCategory {
 
     @JsonCreator
     public static ProductCategory from(Object value) {
-        if (value == null) {
-            throw new IllegalArgumentException("ProductCategory cannot be null");
-        }
-
         return Arrays.stream(ProductCategory.values())
                 .filter(cartegory -> (value instanceof Integer && cartegory.getCod().equals(value))
                         || (value instanceof String && cartegory.getDescription().equalsIgnoreCase(value.toString())))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid ProductCategory: " + value));
+                .orElse(null);
     }
 }

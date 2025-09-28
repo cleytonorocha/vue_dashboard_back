@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.cleytonorocha.vue_dashboard_back.exception.ItemNotFoundException;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Sale;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.SaleRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.SaleRepository;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.SaleDTO;
 
 import lombok.RequiredArgsConstructor;

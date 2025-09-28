@@ -15,7 +15,7 @@ import com.github.cleytonorocha.vue_dashboard_back.helper.ListData;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductStatus;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.ProductRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.ProductRepository;
 import com.github.cleytonorocha.vue_dashboard_back.rest.DTO.ProductDTO;
 
 import lombok.RequiredArgsConstructor;

@@ -3,6 +3,7 @@ package com.github.cleytonorocha.vue_dashboard_back.config;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.annotation.Bean;
@@ -16,11 +17,11 @@ import com.github.cleytonorocha.vue_dashboard_back.model.entity.Product;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Sale;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductCategory;
 import com.github.cleytonorocha.vue_dashboard_back.model.enums.ProductStatus;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.CustomerRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.EmployeeRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.LocalRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.ProductRepository;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.SaleRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.CustomerRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.EmployeeRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.LocalRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.ProductRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.SaleRepository;
 import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
@@ -44,6 +45,22 @@ public class DbMock {
         private final Integer QUANTITY_LOCALS = 10;
         private final Integer QUANTITY_SALES = 20000;
 
+        private final List<String> productImages = List.of(
+                        "static/images/mock/background.png",
+                        "static/images/mock/camera.png",
+                        "static/images/mock/clock.png",
+                        "static/images/mock/coffee.png",
+                        "static/images/mock/dring.png",
+                        "static/images/mock/earphones.png",
+                        "static/images/mock/hammer.png",
+                        "static/images/mock/notebook.png",
+                        "static/images/mock/objects.png",
+                        "static/images/mock/phone.png",
+                        "static/images/mock/sunglasses.png",
+                        "static/images/mock/tools.png",
+                        "static/images/mock/usb-2572036.png",
+                        "static/images/mock/usb.png");
+
         @Bean
         @SuppressWarnings("deprecation")
         String saveMock() {
@@ -56,7 +73,7 @@ public class DbMock {
                         product.setRating(BigDecimal.valueOf(faker.number().randomDouble(2, 1, 5)));
                         product.setPrice(BigDecimal.valueOf(faker.number().randomDouble(2, 10, 1000)));
                         product.setCodeQr(faker.code().isbn13());
-                        product.setImageUrl(faker.internet().url());
+                        product.setImageUrl(productImages.get(RandomUtils.nextInt(0, productImages.size())));
                         product.setCategory(ProductCategory
                                         .toEnum(RandomUtils.nextInt(1, ProductCategory.values().length)));
                         product.setStatus(ProductStatus.toEnum(RandomUtils.nextInt(1, ProductStatus.values().length)));

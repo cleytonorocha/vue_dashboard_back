@@ -8,7 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Customer;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.CustomerRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.CustomerRepository;
 
 import lombok.AllArgsConstructor;
 

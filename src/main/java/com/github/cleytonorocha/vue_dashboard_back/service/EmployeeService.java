@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.cleytonorocha.vue_dashboard_back.exception.ItemNotFoundException;
 import com.github.cleytonorocha.vue_dashboard_back.model.entity.Employee;
-import com.github.cleytonorocha.vue_dashboard_back.model.repository.EmployeeRepository;
+import com.github.cleytonorocha.vue_dashboard_back.repository.EmployeeRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
