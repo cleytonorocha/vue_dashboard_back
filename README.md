@@ -2,6 +2,8 @@
 
 Backend for the Vue Dashboard project — Spring Boot REST API to serve product data to the front-end.
 
+<img src="./gif.gif"></img>
+
 > Lightweight Spring Boot service (Maven) providing product endpoints used by the Vue dashboard frontend.
 
 ---
