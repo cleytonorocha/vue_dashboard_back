@@ -60,7 +60,6 @@ public class ProductDTO {
                 .rating(productDTO.getRating())
                 .price(productDTO.getPrice())
                 .codeQr(productDTO.getCodeQr())
-                .imageUrl(productDTO.getImageUrl())
                 .category(productDTO.getCategory())
                 .status(productDTO.getStatus())
                 .build();
@@ -75,7 +74,6 @@ public class ProductDTO {
                 .rating(product.getRating())
                 .price(product.getPrice())
                 .codeQr(product.getCodeQr())
-                .imageUrl(product.getImageUrl().toString())
                 .category(product.getCategory())
                 .status(product.getStatus())
                 .build();
