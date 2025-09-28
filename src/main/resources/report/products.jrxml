@@ -1,5 +1,10 @@
 <!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="products" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e07fcff-bf9a-4ff8-8d6e-ad30380f8869">
+	<style name="zebra" mode="Opaque" forecolor="#FFFFFF" backcolor="#E0E0E0">
+		<conditionalStyle mode="Opaque">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
 	<parameter name="logo" class="java.io.InputStream"/>
 	<query language="sql"><![CDATA[]]></query>
 	<field name="id" class="java.lang.Long"/>
@@ -11,12 +16,12 @@
 	<field name="description" class="java.lang.String"/>
 	<field name="price" class="java.math.BigDecimal"/>
 	<background splitType="Stretch"/>
-	<title height="67" splitType="Stretch">
-		<element kind="staticText" uuid="ca18c7af-dc95-451b-b683-f2172c74d291" x="71" y="6" width="170" height="41" fontName="SansSerif" fontSize="26.0" hTextAlign="Left" vTextAlign="Middle">
+	<title height="28" splitType="Stretch">
+		<element kind="staticText" uuid="ca18c7af-dc95-451b-b683-f2172c74d291" x="30" y="0" width="69" height="24" fontName="SansSerif" fontSize="11.0" hTextAlign="Left" vTextAlign="Middle">
 			<text><![CDATA[PRODUCTS]]></text>
 			<box leftPadding="4"/>
 		</element>
-		<element kind="image" uuid="5bc13403-a820-4b01-9569-26b35bd3c740" x="15" y="8" width="50" height="50">
+		<element kind="image" uuid="5bc13403-a820-4b01-9569-26b35bd3c740" x="5" y="1" width="25" height="22">
 			<expression><![CDATA[$P{logo}]]></expression>
 		</element>
 	</title>
@@ -105,49 +110,49 @@
 	</columnHeader>
 	<detail>
 		<band height="30" splitType="Stretch">
-			<element kind="textField" uuid="a51b2c48-5e5d-477f-8e28-79252164a465" x="71" y="0" width="49" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="a51b2c48-5e5d-477f-8e28-79252164a465" x="71" y="0" width="49" height="30" forecolor="#030303" fontSize="7.0" textAdjust="StretchHeight" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{id}]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="06c37f15-2aa4-4830-9053-ae3cd07c8aeb" x="120" y="0" width="100" height="30" fontSize="7.0" textAdjust="StretchHeight" vTextAlign="Middle">
+			<element kind="textField" uuid="06c37f15-2aa4-4830-9053-ae3cd07c8aeb" x="120" y="0" width="100" height="30" forecolor="#030303" fontSize="7.0" textAdjust="StretchHeight" linkType="None" linkTarget="Self" vTextAlign="Middle">
 				<expression><![CDATA[$F{name}]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="0629d04a-0f32-4e42-81fb-e0fb76456bae" x="376" y="0" width="64" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="0629d04a-0f32-4e42-81fb-e0fb76456bae" x="376" y="0" width="64" height="30" forecolor="#030303" fontSize="7.0" textAdjust="StretchHeight" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{category}.toDescription()]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="773d7773-da9a-430a-a093-a0d5008d27e8" x="332" y="0" width="44" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="773d7773-da9a-430a-a093-a0d5008d27e8" x="332" y="0" width="44" height="30" forecolor="#030303" fontSize="7.0" textAdjust="StretchHeight" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{stock}]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="65bc8217-b652-4274-a26e-6f78cdd115d4" x="282" y="0" width="50" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="65bc8217-b652-4274-a26e-6f78cdd115d4" x="282" y="0" width="50" height="30" forecolor="#030303" fontSize="7.0" textAdjust="StretchHeight" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{status}.toDescription()]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="3445750b-8c67-4c84-811a-ef5fa3129b6f" x="440" y="0" width="115" height="30" markup="styled" fontSize="7.0" textAdjust="ScaleFont" vTextAlign="Middle">
+			<element kind="textField" uuid="3445750b-8c67-4c84-811a-ef5fa3129b6f" x="440" y="0" width="115" height="30" forecolor="#030303" markup="styled" fontSize="7.0" textAdjust="ScaleFont" linkType="None" linkTarget="Self" vTextAlign="Middle">
 				<expression><![CDATA[$F{description}]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="d8a4e4eb-bbd1-4695-a92b-ca51e8cbadf2" x="220" y="0" width="62" height="30" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="d8a4e4eb-bbd1-4695-a92b-ca51e8cbadf2" x="220" y="0" width="62" height="30" forecolor="#030303" fontSize="7.0" textAdjust="StretchHeight" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[java.text.NumberFormat.getCurrencyInstance(new java.util.Locale("pt", "BR")).format($F{price})]]></expression>
 				<box padding="2">
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="image" uuid="e6dd7395-add1-4ee4-bbd9-6673428019b3" x="0" y="0" width="71" height="30" hImageAlign="Center" vImageAlign="Middle">
+			<element kind="image" uuid="e6dd7395-add1-4ee4-bbd9-6673428019b3" x="0" y="0" width="71" height="30" forecolor="#030303" linkType="None" linkTarget="Self" hImageAlign="Center" vImageAlign="Middle">
 				<expression><![CDATA[$F{imageUrl}
 ]]></expression>
 				<box padding="1">

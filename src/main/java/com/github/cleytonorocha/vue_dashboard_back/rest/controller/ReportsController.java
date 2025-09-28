@@ -54,7 +54,7 @@ public class ReportsController extends ReportHelper {
 
     private ResponseEntity<byte[]> generateReport(List<?> data, String jrxmlName, Integer type) throws IOException, JRException {
         Map<String, Object> parameters = new HashMap<>();
-        ClassPathResource imgFile = new ClassPathResource("static/images/logo.png");
+        ClassPathResource imgFile = new ClassPathResource("static/images/logo.svg");
 
         parameters.put("logo", imgFile.getInputStream());
 
