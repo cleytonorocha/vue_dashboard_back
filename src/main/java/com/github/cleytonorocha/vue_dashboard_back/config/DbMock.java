@@ -46,38 +46,20 @@ public class DbMock {
         private final Integer QUANTITY_SALES = 20000;
 
         private final List<String> productImages = List.of(
-                "https://cdn.pixabay.com/photo/2020/06/23/14/23/laptop-5332720_1280.jpg",
-                "https://cdn.pixabay.com/photo/2022/10/14/08/03/smartphone-7520737_1280.jpg",
-                "https://cdn.pixabay.com/photo/2015/05/31/11/48/earphones-791309_1280.jpg",
-                "https://cdn.pixabay.com/photo/2017/06/05/14/29/camera-2374221_1280.jpg",
-                "https://cdn.pixabay.com/photo/2021/08/24/21/42/coffee-6571884_1280.jpg",
-                "https://cdn.pixabay.com/photo/2020/04/19/11/52/drink-5063295_640.jpg",
-                "https://cdn.pixabay.com/photo/2012/02/22/20/02/tools-15539_640.jpg",
-                "https://cdn.pixabay.com/photo/2018/08/12/21/58/watch-3601857_640.jpg",
-                "https://cdn.pixabay.com/photo/2015/09/09/02/03/clock-931027_640.jpg",
-                "https://cdn.pixabay.com/photo/2020/10/25/07/59/time-5689822_1280.jpg",
-                "https://cdn.pixabay.com/photo/2019/08/11/19/27/hammer-4399754_1280.jpg",
-                "https://cdn.pixabay.com/photo/2019/10/02/11/09/cleaning-4528748_1280.jpg",
-                "https://cdn.pixabay.com/photo/2020/04/21/16/42/objects-5073829_1280.jpg",
-                "https://cdn.pixabay.com/photo/2021/12/08/07/53/security-camera-7223045_1280.jpg",
-                "https://cdn.pixabay.com/photo/2020/04/11/08/06/usb-5029285_1280.jpg",
-                "https://cdn.pixabay.com/photo/2016/10/11/12/51/sunglasses-1731506_1280.jpg",
-                "https://cdn.pixabay.com/photo/2019/06/11/16/06/background-white-4267347_1280.jpg",
-                "https://cdn.pixabay.com/photo/2016/03/19/14/53/usb-1266831_1280.jpg",
-                "https://cdn.pixabay.com/photo/2017/08/02/15/13/usb-2572036_640.jpg",
-                "https://cdn.pixabay.com/photo/2019/05/23/07/49/headphones-4223342_1280.jpg",
-                "https://cdn.pixabay.com/photo/2020/04/21/16/42/objects-5073829_1280.jpg",
-                "https://cdn.pixabay.com/photo/2023/01/01/23/53/jar-7691024_640.jpg",
-                "https://cdn.pixabay.com/photo/2014/12/12/22/08/glass-565914_640.jpg",
-                "https://cdn.pixabay.com/photo/2017/06/17/10/06/perfume-2411690_640.jpg",
-                "https://cdn.pixabay.com/photo/2020/06/23/14/23/laptop-5332720_1280.jpg",
-                "https://cdn.pixabay.com/photo/2022/10/14/08/03/smartphone-7520737_1280.jpg",
-                "https://cdn.pixabay.com/photo/2015/05/31/11/48/earphones-791309_1280.jpg",
-                "https://cdn.pixabay.com/photo/2017/06/05/14/29/camera-2374221_1280.jpg",
-                "https://cdn.pixabay.com/photo/2021/08/24/21/42/coffee-6571884_1280.jpg",
-                "https://cdn.pixabay.com/photo/2020/04/19/11/52/drink-5063295_640.jpg"
-            );
-            
+                        "static/images/mock/background.png",
+                        "static/images/mock/camera.png",
+                        "static/images/mock/clock.png",
+                        "static/images/mock/coffee.png",
+                        "static/images/mock/dring.png",
+                        "static/images/mock/earphones.png",
+                        "static/images/mock/hammer.png",
+                        "static/images/mock/notebook.png",
+                        "static/images/mock/objects.png",
+                        "static/images/mock/phone.png",
+                        "static/images/mock/sunglasses.png",
+                        "static/images/mock/tools.png",
+                        "static/images/mock/usb-2572036.png",
+                        "static/images/mock/usb.png");
 
         @Bean
         @SuppressWarnings("deprecation")
